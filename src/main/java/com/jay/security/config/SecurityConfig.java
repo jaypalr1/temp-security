@@ -60,6 +60,7 @@ public class SecurityConfig {
                 .migrateSession().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
                 .invalidSessionUrl("/invalidSession")
                 .maximumSessions(1) // Max number of sessions
+                .maxSessionsPreventsLogin(true) // Invalidate second user login. Without this 1st user is logged out
                 .expiredUrl("/sessionExpired"))
         .build();
   }
